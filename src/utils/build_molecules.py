@@ -8,9 +8,8 @@ from src.utils.struc_tools import read_mae
 
 class Fragment_Attachment_Set:
 	def __init__(self):
-		output_root = "/oak/stanford/groups/rondror/users/lxpowers/ligand_building/database_metrics/frag_v1/"
-		self.fragment_structures = read_mae(os.path.join(output_root, f'top_{35}.mae'))
-		self.fragment_data = read_csv(os.path.join(output_root, f'top_{35}_with_ids.csv'))
+		self.fragment_structures = read_mae("./data/source/top_35_fragments.mae")
+		self.fragment_data = read_csv("./data/source/top_35_with_ids.csv")
 		for row in self.fragment_data:
 			if (row['tricky'] == ''):
 				tricky = []

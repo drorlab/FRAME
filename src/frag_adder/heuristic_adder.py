@@ -2,10 +2,10 @@ import random
 import logging
 import numpy as np
 import time
-
+import os
 from abc import ABC, abstractmethod
 
-from src.frag_adder.base import FragmentAdder
+from src.frag_adder.base_adder import FragmentAdder
 from src.frag_adder.ligand_node import LigandNode, LigandNode_List
 from src.utils.fragment_info.simple_fragment_config import fragment_info
 from src.utils.struc_tools import num_heavy_atoms
@@ -71,7 +71,7 @@ class HeuristicFragmentAdder(FragmentAdder, ABC):
             self.logger.addHandler(fileHandler)
 
         # self.logger.info(f"Initialize random generator with seed {config['random_seed']:}")
-        # random.seed(config['random_seed'])
+        random.seed(config['random_seed'])
 
     def run(self, ligand, protein, output_filename, endpoint_struc=None, goal='mw'):
 
@@ -144,7 +144,7 @@ class HeuristicFragmentAdder(FragmentAdder, ABC):
             solution.append(current)
             depth += 1
 
-            solution.write_to_file(f"{self.debug_config['debug_output_root']}intermediate.mae", title_format_func,
+            solution.write_to_file(os.path.join(self.debug_config['debug_output_root'], 'intermediate.mae'), title_format_func,
                                    include_protein=True)
 
             if self.is_goal_reached(current, None):

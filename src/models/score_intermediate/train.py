@@ -4,7 +4,6 @@ import os
 import pathlib
 import sys
 
-sys.path.insert(0, '/oak/stanford/groups/rondror/users/hyu42/fragment_stitching_copy/')
 import numpy as np
 import pandas as pd
 import sklearn.metrics as sm

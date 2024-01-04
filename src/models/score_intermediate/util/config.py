@@ -3,8 +3,6 @@ import dotenv as de
 de.load_dotenv(de.find_dotenv(usecwd=True))
 
 
-PDBBIND_E3NN_CKPT = '/scratch/users/psuriana/Fragment_stitching/training/models_wandb/wandb/run-20210519_220258-1qsfhs31/files/checkpoints/FragS-epoch=25-val_loss=0.86.ckpt'
-PDBBIND_CNN3D_CKPT = '/scratch/users/psuriana/Fragment_stitching/training/models_wandb/wandb/run-20210519_220659-33np65w3/files/checkpoints/FragS-epoch=42-val_loss=0.90.ckpt'
 DATA_DIR = "/scratch/groups/rondror/lxpowers/temp_output/dataset_v5_ap/lmdb_data/split_seq_30"
 defaults = dict(
     ### Training related

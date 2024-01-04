@@ -44,9 +44,8 @@ def run_FRAME(args, config):
         end_point_ligand = None
 
     if adder_type == "ML_2model":
-        ##TODO remove this in final version
-        sys.path.insert(0,
-                        '/oak/stanford/groups/rondror/projects/ligand-docking/fragment_building/software/anaconda3/envs/e3nn/lib/python3.8/site-packages')
+        # need to access e3nn and torch libraries from SCHRODINGER python, this is a simple way to do it os.getenv('E3NN_PATH')
+        sys.path.insert(0, args.e3nn_env_path)
         from src.frag_adder.adder_2model import initialize_2model_adder
         adder = initialize_2model_adder(config)
     if adder_type == 'random':
@@ -68,14 +67,17 @@ def get_args():
     parser.add_argument('--max_steps', type=int, default=5, help='If end point is number_steps, maximum number of fragments to add')
     parser.add_argument('--endpoint_ligand_path', type=str, default='', help='If end point is ref_heavy or ref_mw, path to reference .mae file for determine number of fragments to add')
 
+    parser.add_argument('--e3nn_env_path', type=str, default='/oak/stanford/groups/rondror/projects/ligand-docking/fragment_building/software/anaconda3/envs/e3nn/lib/python3.8/site-packages', help='To allow using e3nn and custom torch with schrodinger python environment')
     args = parser.parse_args()
     return args
 
 '''
-python3 -m src.frag_adder.run_FRAME --config_name config_random --output_folder_path ./test_outputs 
---seed_ligand_path ./data/test_inputs/3C49_seed_ligand.mae --protein_pocket_path ./data/test_inputs/3C49_pocket.mae --end_point number_steps --max_steps 5
+$SCHRODINGER/run python3 -m src.frag_adder.run_FRAME --config_name config_ML --output_folder_path ./test_outputs --seed_ligand_path ./data/test_inputs/3C49_seed_ligand.mae --protein_pocket_path ./data/test_inputs/3C49_pocket.mae --end_point number_steps --max_steps 5
 '''
-def FRAME_CLI():
+def main():
     command_line_args = get_args()
     config = get_config(command_line_args.config_name)
     run_FRAME(command_line_args, config)
+
+if __name__ == "__main__":
+    main()

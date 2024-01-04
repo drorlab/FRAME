@@ -36,17 +36,3 @@ def load_checkpoint(filepath):
     transform = ScoreFragmentModelDataModule.get_data_transform(False, hparams)
     print(hparams)
     return model, transform
-
-
-if __name__ == '__main__':
-    e3nn_ckpt = '/scratch/users/psuriana/Fragment_stitching/training/models_wandb/wandb/run-20210519_220258-1qsfhs31/files/checkpoints/FragS-epoch=25-val_loss=0.86.ckpt'
-    cnn3d_ckpt = '/scratch/users/psuriana/Fragment_stitching/training/models_wandb/wandb/run-20210519_220659-33np65w3/files/checkpoints/FragS-epoch=42-val_loss=0.90.ckpt'
-    fragment_e3nn_ckpt = '/oak/stanford/groups/rondror/users/lxpowers/ligand_building/training/models_wandb/wandb/run-20210609_223105-3hbqtlqx/files/checkpoints/FragS-epoch=009-val_loss=0.1906.ckpt'
-    model, transform = load_checkpoint(fragment_e3nn_ckpt)
-
-    print(model)
-    print("Is CUDA?", next(model.parameters()).is_cuda)
-    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    print("Device:", device)
-    model.to(device)
-    print("Is CUDA?", next(model.parameters()).is_cuda)
