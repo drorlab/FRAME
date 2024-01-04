@@ -10,7 +10,7 @@ A. Powers, H. Yu, P. Suriana, et. al. ACS Central Science, 2023
 FRAME uses Schrodinger python environment and structure objects (https://newsite.schrodinger.com/python-api/).
 
 Dataset and model weights are available on [Google Drive](https://drive.google.com/drive/folders/1bBjwx8oAETmaEhUQoGoh2ZD7nY1Ld2KJ?usp=sharing).
-Download and add files to the `/data/source` folder along with other required files. 
+Download and add files to `/data/source`. 
 
 ### Running FRAME
 
