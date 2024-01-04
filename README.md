@@ -7,7 +7,29 @@ A. Powers, H. Yu, P. Suriana, et. al. ACS Central Science, 2023
 
 ### Installation
 
-FRAME uses Schrodinger python environment and structure objects (https://newsite.schrodinger.com/python-api/).
+FRAME uses Schrodinger python environment and structure objects to prepare structure and add fragments (https://newsite.schrodinger.com/python-api/).
+
+For model training, we use pytorch and e3nn library. Install appropriate versions of torch and attendant libraries. Please set the adequate version of CUDA for your system. The instructions shown are for CUDA 11.7. If you want to install the CPU-only version, use CUDA="".
+```
+TORCH="1.13.0"
+CUDA="cu117"
+pip install torch==${TORCH}+${CUDA} -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-geometric
+
+pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install pytorch-lightning python-dotenv wandb
+```
+In addition, we need to install a FRAME-compatible version of the e3nn library (https://github.com/e3nn/e3nn). Please note that this specific version is only provided for compatability, further development should be done using the main e3nn branch.
+```
+pip install git+ssh://git@github.com/drorlab/e3nn_edn.git
+```
+We use the LMDB data format from Atom3D (https://www.atom3d.ai/) for fast random access. To install the atom3d package:
+```
+pip install atom3d
+```
 
 Dataset and model weights are available on [Google Drive](https://drive.google.com/drive/folders/1bBjwx8oAETmaEhUQoGoh2ZD7nY1Ld2KJ?usp=sharing).
 Download and add files to `/data/source`. 
@@ -47,5 +69,5 @@ Detailed argument descriptions:
                     If end point is ref_heavy or ref_mw, path to reference .mae file for determine number of
                     fragments to add
 --e3nn_env_path 
-                    To access e3nn package from SCHRODINGER python, provide path to e3nn libraries
+                    To access e3nn package from SCHRODINGER python environment, provide path to e3nn library
 ```
