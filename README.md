@@ -2,7 +2,8 @@
 
 ## FRAME: Fragment-based Molecular Expansion
 
-Code for Powers et. al., Geometric deep learning for structure-based ligand design, ACS Central Science, 2023.
+Code for Geometric deep learning for structure-based ligand design.
+A. Powers, H. Yu, P. Suriana, et. al. ACS Central Science, 2023
 
 ### Installation
 
