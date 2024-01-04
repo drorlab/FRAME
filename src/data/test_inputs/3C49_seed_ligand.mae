@@ -1,0 +1,86 @@
+{ 
+ s_m_m2io_version
+ :::
+ 2.0.0 
+} 
+
+f_m_ct { 
+ s_m_title
+ s_m_entry_id
+ s_m_entry_name
+ s_m_Source_Path
+ s_m_Source_File
+ i_m_Source_File_Index
+ s_m_subgroup_title
+ s_m_subgroupid
+ b_m_subgroup_collapsed
+ i_m_ct_format
+ :::
+ d0_None_0.00 
+  3 
+  all_ligands.23 
+  /Users/alexpowers/Documents/research/pymol/generated 
+  3C49_gen.mae 
+  3
+  all_ligands 
+  all_ligands 
+  0
+  2
+ m_atom[12] { 
+  # First column is atom index #
+  i_m_mmod_type
+  r_m_x_coord
+  r_m_y_coord
+  r_m_z_coord
+  i_m_residue_number
+  i_m_color
+  r_m_charge1
+  r_m_charge2
+  s_m_pdb_residue_name
+  s_m_pdb_atom_name
+  i_m_atomic_number
+  s_m_color_rgb
+  s_m_atom_name
+  i_i_constraint
+  i_i_internal_atom_index
+  i_pa_atomindex
+  i_plep_ligand
+  i_ppw_anum
+  i_ppw_het
+  :::
+  1 2 22.078854 -6.121595 10.042501 1 2 -0.11500 -0.11500 "KU8 " " C1W" 6 A0A0A0  "C1W"  0 10 10 1 10 1
+  2 2 21.042073 -6.420053 10.944616 1 2 -0.11500 -0.11500 "KU8 " " C1J" 6 A0A0A0  "C1J"  0 11 11 1 11 1
+  3 2 23.203747 -6.977915 9.980006 1 2 0.22000 0.22000 "KU8 " " C1V" 6 A0A0A0  "C1V"  0 12 12 1 12 1
+  4 2 23.288072 -8.082342 10.851949 1 2 -0.11500 -0.11500 "KU8 " " C1G" 6 A0A0A0  "C1G"  0 14 14 1 14 1
+  5 2 22.238521 -8.373127 11.746451 1 2 -0.11500 -0.11500 "KU8 " " C1F" 6 A0A0A0  "C1F"  0 15 15 1 15 1
+  6 2 21.092915 -7.553151 11.784648 1 2 -0.11500 -0.11500 "KU8 " " C1U" 6 A0A0A0  "C1U"  0 16 16 1 16 1
+  7 41 20.183730 -5.766032 10.957757 1 21 0.11500 0.11500 "KU8 " " H1J" 1 FFFFFF  ""  0 44 5583 1 <> <>
+  8 41 24.146693 -8.732287 10.803834 1 21 0.11500 0.11500 "KU8 " " H1G" 1 FFFFFF  ""  0 45 5584 1 <> <>
+  9 41 22.313747 -9.234942 12.393882 1 21 0.11500 0.11500 "KU8 " " H1F" 1 FFFFFF  ""  0 46 5585 1 <> <>
+  10 41 22.009646 -5.249068 9.409803 1 21 0.00000 0.00000 "KU8 " "HC1W" 1 FFFFFF  ""  <> <> <> <> <> <>
+  11 41 20.264040 -7.777358 12.439704 1 21 0.00000 0.00000 "KU8 " "HC1U" 1 FFFFFF  ""  <> <> <> <> <> <>
+  12 41 23.991427 -6.783548 9.267138 1 21 0.00000 0.00000 "KU8 " "HC1V" 1 FFFFFF  ""  <> <> <> <> <> <>
+  :::
+ } 
+ m_bond[12] { 
+  # First column is bond index #
+  i_m_from
+  i_m_to
+  i_m_order
+  :::
+  1 1 2 2
+  2 1 3 1
+  3 1 10 1
+  4 2 6 1
+  5 2 7 1
+  6 3 4 2
+  7 3 12 1
+  8 4 5 1
+  9 4 8 1
+  10 5 6 2
+  11 5 9 1
+  12 6 11 1
+  :::
+ } 
+} 
+

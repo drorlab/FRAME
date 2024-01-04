@@ -77,16 +77,19 @@ class HeuristicFragmentAdder(FragmentAdder, ABC):
 
         start = LigandNode(protein, ligand)
 
-        self.goal = {'type': 'depth', 'value': self.max_depth}
+
         if endpoint_struc != None:
-            if goal == 'heavy':
-                self.logger.info(f"Using a number heavy atoms goal")
+            if goal == 'ref_heavy':
+                self.logger.info(f"Using a number heavy atoms of reference as goal")
                 goal = 0.95*num_heavy_atoms(endpoint_struc)
                 self.goal = {'type': 'heavy', 'value': goal}
             else:
-                self.logger.info(f"Using a molecular weight goal")
+                self.logger.info(f"Using a molecular weight of reference as goal")
                 goal = endpoint_struc.total_weight
                 self.goal = {'type': 'mw', 'value': goal}
+        else:
+            self.logger.info(f"Using a number of steps as goal")
+            self.goal = {'type': 'depth', 'value': self.max_depth}
 
         solution = self.greedy_search(start)
         if len(solution) == 1:
