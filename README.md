@@ -7,7 +7,7 @@ A. Powers, H. Yu, P. Suriana, et. al. ACS Central Science, 2023
 
 ### Installation
 
-FRAME uses Schrodinger python environment and structure objects to prepare structure and add fragments (https://newsite.schrodinger.com/python-api/).
+FRAME uses Schrodinger python environment and structure objects to add fragments (https://newsite.schrodinger.com/python-api/).
 
 For model training, we use pytorch and e3nn library. Install appropriate versions of torch and attendant libraries. Please set the adequate version of CUDA for your system. The instructions shown are for CUDA 11.7. If you want to install the CPU-only version, use CUDA="".
 ```
@@ -30,6 +30,9 @@ We use the LMDB data format from Atom3D (https://www.atom3d.ai/) for fast random
 ```
 pip install atom3d
 ```
+Other installation notes: 
+- E3nn needs to be built on a version of python that matches the version of the Schrödinger python installation, so that these can be used together (typically Python3.8). 
+- Possible installation issues will be posted in `installation_FAQ.md`
 
 Dataset and model weights are available on [Google Drive](https://drive.google.com/drive/folders/1bBjwx8oAETmaEhUQoGoh2ZD7nY1Ld2KJ?usp=sharing).
 Download and add files to `/data/source`. 
@@ -45,9 +48,11 @@ $SCHRODINGER/run python3 -m src.frag_adder.run_FRAME
 --seed_ligand_path ./data/test_inputs/3C49_seed_ligand.mae 
 --protein_pocket_path ./data/test_inputs/3C49_pocket.mae 
 --end_point number_steps --max_steps 5
+--e3nn_env_path PATH
 ```
 - seed_ligand_path is a the path to (.mae) file containing the starting ligand to add fragments to.
 - protein_pocket_path is a path to (.mae) file containing the protein pocket. The seed_ligand should be aligned or docked to pocket structure.
+- e3nn_env_path needs to be specified to allow access to e3nn package from SCHRODINGER environment
 - Note: recommended to use GPU to run.
 
 Detailed argument descriptions: 
