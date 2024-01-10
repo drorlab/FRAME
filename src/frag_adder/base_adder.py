@@ -104,8 +104,13 @@ class FragmentAdder(ABC):
                 fraggroup=fragment_info[fragname]['group'], fragname=fragname)
         # Figure out the new index of the non-hydrogen atom in the open
         # bond being attached to
-        attachment_atom_idx = renumbered[from_atom.index]
-        assert not renumbered[to_atom.index], "Hydrogen should have been removed"
+
+        if renumbered is not None:
+            attachment_atom_idx = renumbered[from_atom.index]
+            assert not renumbered[to_atom.index], "Hydrogen should have been removed"
+        else:
+            attachment_atom_idx = from_atom.index
+
         return struct, attachment_atom_idx
 
     @staticmethod

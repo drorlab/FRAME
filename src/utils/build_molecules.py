@@ -44,12 +44,12 @@ class Fragment_Attachment_Set:
 		indices = parent_struc.getAtomIndices()
 		indices.remove(open_bond[0].index)
 		indices.remove(open_bond[1].index)
-		new_indices = [new_ids[i] for i in indices]
+		if new_ids is None:
+			indices = [i for i in indices if parent_struc.atom[i].element != 'H']
+			new_indices = indices
+		else:
+			new_indices = [new_ids[i] for i in indices]
 		rmsd.superimpose(parent_struc, indices, new_structure, new_indices)
-
-
-
-
 
 
 def perform_attachments(target_struc, open_bond, fragment_structures, fragment_data):
